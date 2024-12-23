@@ -1,0 +1,109 @@
+@use "../../styles/breakpoints" as *;
+
+.header {
+  background-color: #0067a3;
+  height: 55px;
+  width: 100%;
+  overflow: visible;
+  & > .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    overflow: visible;
+  }
+  &__title {
+    font-size: 28px;
+    color: #fff;
+    @include respond-to(xs) {
+      font-size: 24px;
+    }
+    @include respond-to(xm) {
+      font-size: 19px;
+    }
+  }
+  &__user {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    gap: 0 2px;
+    width: 66px;
+    position: relative;
+    overflow: visible;
+    cursor: pointer;
+    &-img {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      border: 1px solid #fff;
+      height: 40px;
+      width: 40px;
+      background: #fff;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+    }
+    &-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      transition: transform 0.3s ease;
+      -webkit-transition: transform 0.3s ease;
+      -moz-transition: transform 0.3s ease;
+      -ms-transition: transform 0.3s ease;
+      -o-transition: transform 0.3s ease;
+    }
+    &-arrow--active {
+      transform: rotate(180deg);
+      -webkit-transform: rotate(180deg);
+      -moz-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      -o-transform: rotate(180deg);
+    }
+    &-dropdown {
+      display: none;
+    }
+    &-dropdown--active {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-evenly;
+      position: absolute;
+      right: 0;
+      z-index: 999;
+      top: 126%;
+      overflow: visible;
+      width: 134px;
+      height: 60px;
+      padding: 0px;
+      background-color: #fff;
+      border-radius: 5px;
+      font-size: 14px;
+      &::before {
+        content: "";
+        position: absolute;
+        right: 37px;
+        top: -16px;
+        border: 10px solid transparent;
+        border-bottom: 10px solid #fff;
+        z-index: 20;
+      }
+      & a {
+        display: flex;
+        align-items: center;
+        padding: 4px 8px;
+        transition: background 0.3s ease;
+        -webkit-transition: background 0.3s ease;
+        -moz-transition: background 0.3s ease;
+        -ms-transition: background 0.3s ease;
+        -o-transition: background 0.3s ease;
+      }
+      & a:hover {
+        background-color: #dedede;
+      }
+    }
+  }
+}

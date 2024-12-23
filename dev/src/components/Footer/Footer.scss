@@ -1,0 +1,39 @@
+@use "../../styles/breakpoints" as *;
+
+.footer {
+  background-color: #0067a3;
+  height: 55px;
+  width: 100%;
+  & > .container {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    align-items: center;
+  }
+  &__number-tasks {
+    font-size: 18px;
+    color: #fff;
+    &:nth-child(1) {
+      margin-right: 36px;
+      @include respond-to(sm) {
+        margin-right: 20px;
+      }
+      @include respond-to(xm) {
+        margin: 0;
+      }
+    }
+    &:nth-child(2) {
+      margin-right: auto;
+      @include respond-to(sm) {
+        margin-right: 20px;
+      }
+      @include respond-to(xm) {
+        margin: 0;
+      }
+    }
+    @include respond-to(xm) {
+      font-size: 16px;
+      margin: 0;
+    }
+  }
+}

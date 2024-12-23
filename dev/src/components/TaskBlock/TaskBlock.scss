@@ -1,0 +1,114 @@
+@use "../../styles/breakpoints" as *;
+
+.task-block {
+  position: relative;
+  width: 282px;
+  max-height: 100%;
+  min-height: 139px;
+  padding: 0px 12px 0px;
+  background-color: #ebecf0;
+  font-size: 18px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  &__title {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 12px 0px 15px;
+    background: #ebecf0;
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px 0px;
+    margin: 0px;
+    & > li:not(.task-block__item--empty):hover {
+      box-shadow: inset 0px 0px 4px 0px #ababab;
+      cursor: pointer;
+    }
+  }
+  &__item {
+    padding: 7px 9px;
+    background-color: #fff;
+    border-radius: 6px;
+    min-height: 35px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    word-wrap: break-word;
+    & > a {
+      display: block;
+    }
+  }
+  &__item--empty {
+    color: #a7a7a7;
+    border-radius: 0;
+    text-align: center;
+    cursor: default;
+    font-style: italic;
+  }
+  &__controls {
+    width: 100%;
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+    background-color: #ebecf0;
+    padding: 17px 0px 8px;
+    color: #5e6c84;
+  }
+  &__button,
+  &__button--active {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 0 5px;
+    width: 102px;
+    height: 29px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    & > img {
+      width: 16px;
+      height: 16px;
+    }
+  }
+  &__button--disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  &__button:hover,
+  & .add-task {
+    background-color: #fff;
+    transition: background 0.3s ease;
+    -webkit-transition: background 0.3s ease;
+    -moz-transition: background 0.3s ease;
+    -ms-transition: background 0.3s ease;
+    -o-transition: background 0.3s ease;
+  }
+  &__button--active,
+  &__button--disabled-submit,
+  &:first-of-type .task-block__button--disabled {
+    background-color: #0079bf;
+    color: #fff;
+    & > img {
+      display: none;
+    }
+  }
+  &__button--disabled-submit:hover {
+    background-color: #0079bf;
+  }
+  @include respond-to(lg) {
+    overflow: auto !important;
+    height: auto !important;
+  }
+  @include respond-to(sm) {
+    max-height: 918px;
+  }
+}
